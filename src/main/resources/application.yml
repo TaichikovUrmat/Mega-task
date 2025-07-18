@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: Mega-task
+
+  config:
+    import:
+      - classpath:/settings/db-settings.yml
+      - classpath:/settings/redis-settings.yml
+      - classpath:/settings/mail-settings.yml

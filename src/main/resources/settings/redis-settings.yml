@@ -1,0 +1,15 @@
+spring:
+  data:
+    redis:
+      host: redis-11765.c13.us-east-1-3.ec2.redns.redis-cloud.com
+      port: 11765
+      password: cKrilrPoC26VarjsxlPyhCiROQBNDFYs
+      timeout: 3000ms
+      ssl:
+        enabled: true
+  cache:
+    type: redis
+
+logging:
+  level:
+    org.springframework.data.redis: DEBUG
