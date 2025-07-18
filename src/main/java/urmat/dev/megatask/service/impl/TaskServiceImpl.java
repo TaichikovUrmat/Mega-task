@@ -49,9 +49,11 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.findAll(pageRequest)
                 .stream()
                 .map(task -> new TaskResponse(
+                        task.getId(),
                         task.getTitle(),
                         task.getDescription(),
-                        task.isCompleted()
+                        task.isCompleted(),
+                        task.getCreatedAt()
                 ))
                 .toList();
     }
@@ -61,9 +63,11 @@ public class TaskServiceImpl implements TaskService {
     public TaskResponse getByTaskId(Long taskId) {
         Task byTaskId = taskRepository.findByTaskId(taskId);
         return TaskResponse.builder()
+                .taskId(byTaskId.getId())
                 .title(byTaskId.getTitle())
                 .description(byTaskId.getDescription())
                 .completed(byTaskId.isCompleted())
+                .createdAt(byTaskId.getCreatedAt())
                 .build();
     }
 
@@ -96,9 +100,11 @@ public class TaskServiceImpl implements TaskService {
         return taskRepository.findAll()
                 .stream()
                 .map(task -> new TaskResponse(
+                        task.getId(),
                         task.getTitle(),
                         task.getDescription(),
-                        task.isCompleted()
+                        task.isCompleted(),
+                        task.getCreatedAt()
                 ))
                 .toList();
     }
